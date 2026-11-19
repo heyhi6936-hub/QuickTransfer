@@ -181,12 +181,19 @@ const TransferCard: React.FC<TransferCardProps> = ({ type, onSend, onReceive, lo
         <input 
           id="receive-code"
           type="text"
+          inputMode="numeric"
+          pattern="[0-9]*"
           maxLength={6}
           placeholder={t.enterCode}
           aria-label={t.enterCode}
           className="w-full bg-gray-50 dark:bg-slate-700/50 border border-gray-100 dark:border-slate-600 rounded-xl py-4 px-5 text-xl font-mono tracking-widest focus:outline-none focus:ring-2 focus:ring-red-400 dark:focus:ring-red-500/50 focus:bg-white dark:focus:bg-slate-700 transition-all text-gray-700 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500"
           value={code}
           onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && code.length === 6 && !loading) {
+              handleReceive();
+            }
+          }}
         />
         <Download className="absolute right-4 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-300 dark:text-gray-500 group-focus-within:text-red-400" aria-label="download file instantly" />
       </div>
