@@ -4,7 +4,11 @@ import { Mail, MessageSquare, Twitter } from 'lucide-react';
 export const dynamic = 'force-static';
 
 export const metadata = {
-  description: 'Get in touch with the QuickTransfer team for support or feedback.',
+  title: 'Contact Us — QuickTransfer Support',
+  description: 'Get in touch with the QuickTransfer team for support, feature inquiries, or privacy questions.',
+  alternates: {
+    canonical: 'https://quicktransfer.site/contact',
+  },
 };
 
 export default function ContactPage() {

@@ -85,17 +85,13 @@ const jsonLd = {
         priceCurrency: "USD",
       },
       featureList: [
-        "No sign-up required",
-        "100MB file size limit",
-        "6-digit secure transfer code",
-        "End-to-end encryption",
-        "Works on all devices and browsers",
+        "No sign-up or registration required",
+        "Free transfers up to 100MB",
+        "Cryptographically secure 6-digit transfer code",
+        "Encrypted in transit via HTTPS",
+        "Automatic expiration within 5 to 10 minutes",
+        "Works on all modern mobile and desktop browsers",
       ],
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.8",
-        ratingCount: "1250",
-      },
     }
   ],
 };

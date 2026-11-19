@@ -2,8 +2,11 @@ import React from 'react';
 import { Download, Monitor, Smartphone, Globe } from 'lucide-react';
 
 export const metadata = {
-  title: 'Download QuickTransfer - Apps for Desktop & Mobile',
-  description: 'Download the QuickTransfer app for Windows, macOS, Android, and iOS for even faster file sharing.',
+  title: 'Download QuickTransfer — Apps for Desktop & Mobile',
+  description: 'Download QuickTransfer applications for Windows, Android, and web. Fast and simple file sharing across all your devices.',
+  alternates: {
+    canonical: 'https://quicktransfer.site/download',
+  },
 };
 
 export default function DownloadPage() {

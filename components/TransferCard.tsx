@@ -6,7 +6,7 @@ import { useLanguage } from '../context/LanguageContext';
 
 interface TransferCardProps {
   type: 'send' | 'receive';
-  onSend?: (file: File, expiryMinutes: number) => void;
+  onSend?: (files: File[], expiryMinutes: number) => void;
   onReceive?: (code: string) => void;
   loading?: boolean;
   initialCode?: string;
@@ -47,14 +47,7 @@ const TransferCard: React.FC<TransferCardProps> = ({ type, onSend, onReceive, lo
 
   const handleSend = () => {
     if (selectedFiles.length && onSend) {
-      // Call onSend for each file so parent can handle files individually
-      for (const f of selectedFiles) {
-        try {
-          onSend(f as unknown as File, expiryMinutes as number);
-        } catch (err) {
-          // ignore individual errors here; parent will report if needed
-        }
-      }
+      onSend(selectedFiles, expiryMinutes);
     }
   };
 

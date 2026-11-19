@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
 import { Download, Share2, ArrowLeft, CheckCircle2, FileText, Info, FileCode, Paperclip, Check, Users, Clock, AlertTriangle } from 'lucide-react';
-import { TransferData } from '../types';
+import { TransferData, TransferFileItem } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 import { getDataByCode } from '../services/storage';
 import DemoAd from './DemoAd';
@@ -56,15 +56,24 @@ const ResultView: React.FC<ResultViewProps> = ({ data, mode, onBack }) => {
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
 
-  const downloadFile = async () => {
+  const downloadSingleFile = (fileItem: { name: string; content: string }) => {
     const link = document.createElement('a');
-    link.href = data.content;
-    link.download = data.name;
+    link.href = fileItem.content;
+    link.download = fileItem.name;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-
     setDownloaded(true);
+  };
+
+  const downloadAll = async () => {
+    if (data.files && data.files.length > 0) {
+      data.files.forEach((file, index) => {
+        setTimeout(() => downloadSingleFile(file), index * 300);
+      });
+    } else {
+      downloadSingleFile({ name: data.name, content: data.content });
+    }
   };
 
   const handleCopyCode = () => {
@@ -158,38 +167,62 @@ const ResultView: React.FC<ResultViewProps> = ({ data, mode, onBack }) => {
 
           {/* File Preview / Details Section */}
           <div className="bg-gray-50 dark:bg-slate-700/50 rounded-2xl p-5 mb-8 text-left border border-gray-100 dark:border-slate-600">
-            <h4 className="text-xs font-bold text-gray-400 dark:text-gray-400 uppercase tracking-wider mb-4 px-1">File Details</h4>
+            <h4 className="text-xs font-bold text-gray-400 dark:text-gray-400 uppercase tracking-wider mb-4 px-1">
+              {data.files && data.files.length > 1 ? `Files in this transfer (${data.files.length})` : 'File Details'}
+            </h4>
             
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="bg-white dark:bg-slate-800 p-2 rounded-lg shadow-sm">
-                  <Paperclip className="w-4 h-4 text-gray-400" aria-hidden="true" />
-                </div>
-                <div>
-                  <p className="text-[10px] text-gray-400 dark:text-gray-500 font-bold uppercase">Filename</p>
-                  <p className="text-sm font-semibold text-gray-700 dark:text-gray-100 break-all">{data.name}</p>
-                </div>
+            {data.files && data.files.length > 1 ? (
+              <div className="space-y-3 max-h-60 overflow-y-auto pr-1">
+                {data.files.map((file, idx) => (
+                  <div key={idx} className="flex items-center justify-between gap-3 p-2 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-gray-100 dark:border-slate-700">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <Paperclip className="w-4 h-4 text-gray-400 shrink-0" aria-hidden="true" />
+                      <div className="truncate">
+                        <p className="text-xs font-semibold text-gray-800 dark:text-gray-200 truncate">{file.name}</p>
+                        <p className="text-[10px] text-gray-400 dark:text-gray-500">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => downloadSingleFile(file)}
+                      className="px-3 py-1.5 bg-red-50 dark:bg-red-500/20 text-red-600 dark:text-red-400 rounded-lg text-xs font-bold hover:bg-red-100 dark:hover:bg-red-500/30 transition-colors shrink-0 flex items-center gap-1"
+                    >
+                      <Download className="w-3.5 h-3.5" aria-hidden="true" /> Download
+                    </button>
+                  </div>
+                ))}
               </div>
+            ) : (
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="bg-white dark:bg-slate-800 p-2 rounded-lg shadow-sm">
+                    <Paperclip className="w-4 h-4 text-gray-400" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] text-gray-400 dark:text-gray-500 font-bold uppercase">Filename</p>
+                    <p className="text-sm font-semibold text-gray-700 dark:text-gray-100 break-all">{data.name}</p>
+                  </div>
+                </div>
 
-              <div className="flex items-center gap-3">
-                <div className="bg-white dark:bg-slate-800 p-2 rounded-lg shadow-sm">
-                  <FileCode className="w-4 h-4 text-gray-400" aria-hidden="true" />
-                </div>
-                <div>
-                  <p className="text-[10px] text-gray-400 dark:text-gray-500 font-bold uppercase">MIME Type</p>
-                  <p className="text-sm font-semibold text-gray-700 dark:text-gray-100">{data.type || 'unknown/binary'}</p>
+                <div className="flex items-center gap-3">
+                  <div className="bg-white dark:bg-slate-800 p-2 rounded-lg shadow-sm">
+                    <FileCode className="w-4 h-4 text-gray-400" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] text-gray-400 dark:text-gray-500 font-bold uppercase">MIME Type</p>
+                    <p className="text-sm font-semibold text-gray-700 dark:text-gray-100">{data.type || 'unknown/binary'}</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
 
           <div className="flex flex-col gap-3">
             <button 
-              onClick={downloadFile}
+              onClick={downloadAll}
               className="w-full bg-gradient-to-r from-red-500 to-pink-500 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:from-red-600 hover:to-pink-600 transition-all shadow-lg shadow-red-500/25 dark:shadow-red-500/20 transform active:scale-[0.98]"
             >
               <Download className="w-5 h-5" aria-label="download file instantly" />
-              {t.downloadFile}
+              {data.files && data.files.length > 1 ? 'Download All Files' : t.downloadFile}
             </button>
             <button 
               onClick={onBack}

@@ -6,7 +6,10 @@ export const dynamic = 'force-static';
 
 export const metadata = {
   title: 'Blog — QuickTransfer Sharing Insights',
-  description: 'Learn about safe file sharing, WeTransfer alternatives, and the future of anonymous data transfer. Expert tips for sending files online free.',
+  description: 'Learn about safe file sharing, WeTransfer alternatives, and temporary data transfer. Tips for sending files online free without accounts.',
+  alternates: {
+    canonical: 'https://quicktransfer.site/blog',
+  },
 };
 
 const blogPosts = [

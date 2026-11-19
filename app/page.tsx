@@ -199,7 +199,7 @@ export default function Page() {
                   </div>
                   <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">Secure 6-Digit Codes</h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                    Our system utilizes a secure 6-digit code architecture. No long, complicated URLs that can be intercepted. Coupled with <strong>end-to-end encryption</strong>, your data remains protected. Once the recipient enters the code, the file is streamed directly, ensuring the fastest speeds.
+                    Our system utilizes a secure 6-digit code architecture. No long, complicated URLs that can be intercepted. Coupled with <strong>HTTPS transit encryption</strong> and automatic expiration, your data remains protected. Once the recipient enters the code, the file is retrieved directly, ensuring the fastest speeds.
                   </p>
                 </div>
 

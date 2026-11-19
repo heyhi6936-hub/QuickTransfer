@@ -21,6 +21,9 @@ export const dynamic = 'force-static';
 export const metadata = {
   title: 'Help Center - QuickTransfer Support',
   description: 'Learn how to send files online free without signup. Get support for secure file sharing, 6-digit code transfers, and troubleshooting.',
+  alternates: {
+    canonical: 'https://quicktransfer.site/help',
+  },
 };
 
 export default function HelpPage() {
@@ -31,8 +34,8 @@ export default function HelpPage() {
       icon: <Zap className="w-6 h-6 text-red-500" aria-label="upload file icon" />
     },
     {
-      q: "Is it really secure?",
-      a: "Yes, security is our core priority. Every file you upload is protected by sub-atomic, browser-side end-to-end encryption during the transit process. The secure 6-digit code acts as a private key that only the intended recipient can use to access the data. We use industry-standard AES-256 protocols to ensure your secure file sharing experience remains private and untamperable at every stage.",
+      q: "Is it secure?",
+      a: "Yes. Every file upload and download is protected with HTTPS (TLS 1.2+) in transit. Files are stored temporarily in Google Firebase cloud infrastructure and access is restricted exclusively to individuals who enter the valid 6-digit transfer code during the active transfer window.",
       icon: <Shield className="w-6 h-6 text-red-500" aria-label="secure encrypted file transfer" />
     },
     {
@@ -42,7 +45,7 @@ export default function HelpPage() {
     },
     {
       q: "How long do codes last?",
-      a: "By default, your transfer codes and files expire exactly 10 minutes after a successful upload. This aggressive auto-deletion policy ensures that your data doesn't sit on our servers indefinitely, providing a truly ephemeral and private way to send files online free without leaving a permanent digital footprint. Once the timer hits zero, the data is physically purged and cannot be recovered.",
+      a: "Transfer codes and files expire within 5 or 10 minutes (based on the sender's selection). This automated expiration ensures that your data does not remain on cloud servers indefinitely. Once the timer reaches zero, the code becomes invalid and the transfer cannot be downloaded.",
       icon: <HelpCircle className="w-6 h-6 text-red-500" aria-hidden="true" />
     },
     {
@@ -51,23 +54,23 @@ export default function HelpPage() {
       icon: <FileText className="w-6 h-6 text-red-500" aria-hidden="true" />
     },
     {
-      q: "Is there a download limit per code?",
-      a: "To ensure your data remains secure and private, each 6-digit code is typically restricted to a single successful download session. Once the recipient has successfully retrieved the file, the code and the underlying data are flagged for immediate deletion from our temporary staging servers. This prevents unauthorized secondary access to your sensitive information.",
+      q: "Can a file be downloaded multiple times?",
+      a: "Yes, recipients can download the file as long as the transfer remains within its active time window (5 or 10 minutes). Once expired, the code is immediately invalidated.",
       icon: <Download className="w-6 h-6 text-red-500" aria-label="download file instantly" />
     },
     {
       q: "What happens if the recipient doesn't download in time?",
-      a: "If the 10-minute window closes before the recipient enters the code, the transfer will automatically expire for security reasons. In this case, the file is automatically scrubbed from our systems. To re-initiate the transfer, you will simply need to upload the file again on the homepage to generate a fresh, new 6-digit code transfer key for your recipient.",
+      a: "If the expiration window closes before the recipient enters the code, the transfer will expire automatically. To re-initiate the transfer, simply upload the file again on the homepage to generate a fresh 6-digit transfer code.",
       icon: <Clock className="w-6 h-6 text-red-500" aria-label="6-digit secure transfer code" />
     },
     {
       q: "Can I use QuickTransfer on mobile?",
-      a: "Absolutely! QuickTransfer is built as a progressive, mobile-first web-based tool. This means it works flawlessly on any smartphone or tablet browser. Whether you are using Safari on iOS or Chrome on Android, you can enjoy a seamless no sign-up file transfer experience without ever needing to download or install a secondary application from an app store.",
+      a: "Absolutely! QuickTransfer works on any smartphone or tablet browser. Whether you are using Safari on iOS or Chrome on Android, you can transfer files between phone and PC without installing any apps.",
       icon: <Smartphone className="w-6 h-6 text-red-500" aria-label="transfer files between devices" />
     },
     {
       q: "Is QuickTransfer safe for sensitive documents?",
-      a: "We have built our architecture around the principle of zero-knowledge sharing. Since we do not require your email, phone number, or any personal details, and all files are encrypted and then automatically purged, QuickTransfer is one of the safest platforms for sharing transient, sensitive documents that shouldn't live in a permanent cloud storage bucket forever.",
+      a: "Because QuickTransfer requires no sign-up or credentials, your transfers are never tied to an identity profile. All transfers travel over secure HTTPS connections with short expiration limits, making it ideal for fast, temporary document sharing.",
       icon: <Lock className="w-6 h-6 text-red-500" aria-label="secure encrypted file transfer" />
     }
   ];

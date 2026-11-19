@@ -1,8 +1,11 @@
 import React from 'react';
 
 export const metadata = {
-  title: 'Terms of Service - QuickTransfer',
-  description: 'Terms and conditions for using QuickTransfer file sharing service.',
+  title: 'Terms of Service — QuickTransfer',
+  description: 'Terms and conditions for using QuickTransfer free temporary file sharing service.',
+  alternates: {
+    canonical: 'https://quicktransfer.site/terms',
+  },
 };
 
 export default function TermsPage() {

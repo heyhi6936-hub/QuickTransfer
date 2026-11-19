@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import TransferCard from './TransferCard';
 import ResultView from './ResultView';
 import TransferHistory from './TransferHistory';
-import { AppState, TransferData } from '../types';
+import { AppState, TransferData, TransferFileItem } from '../types';
 import { generateCode, saveData, getDataByCode } from '../services/storage';
 import { addToHistory } from '../services/history';
 import { useLanguage } from '../context/LanguageContext';
@@ -27,45 +27,67 @@ export default function HomeClient() {
     }
   }, []);
 
-  const handleSend = async (file: File, expiryMinutes: number) => {
+  const handleSend = async (files: File[], expiryMinutes: number) => {
+    if (!files || files.length === 0) return;
     setAppState('SENDING');
     setError(null);
-    
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = async () => {
+
+    try {
+      // Read each file asynchronously
+      const filePromises = files.map((file) => {
+        return new Promise<TransferFileItem>((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => {
+            resolve({
+              name: file.name,
+              size: file.size,
+              type: file.type || 'application/octet-stream',
+              content: reader.result as string,
+            });
+          };
+          reader.onerror = () => reject(new Error(`Failed to read file ${file.name}`));
+          reader.readAsDataURL(file);
+        });
+      });
+
+      const processedFiles = await Promise.all(filePromises);
+      const totalSize = processedFiles.reduce((sum, f) => sum + f.size, 0);
+      const primaryName = processedFiles.length === 1
+        ? processedFiles[0].name
+        : `${processedFiles.length} files (${processedFiles[0].name} and ${processedFiles.length - 1} more)`;
+
+      const generatedCode = generateCode();
       const transfer: TransferData = {
-        id: crypto.randomUUID(),
-        code: generateCode(),
-        name: file.name,
-        size: file.size,
-        type: file.type,
-        content: reader.result as string,
+        id: typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : `qt-${Date.now()}-${Math.random()}`,
+        code: generatedCode,
+        name: primaryName,
+        size: totalSize,
+        type: processedFiles.length === 1 ? processedFiles[0].type : 'application/octet-stream',
+        content: processedFiles[0].content,
+        files: processedFiles,
         createdAt: Date.now(),
         expiresAt: Date.now() + expiryMinutes * 60 * 1000,
       };
 
-      try {
-        await saveData(transfer);
-        addToHistory({
-          code: transfer.code,
-          name: transfer.name,
-          size: transfer.size,
-          type: 'sent',
-          expiryMinutes: expiryMinutes,
-        });
-        setCurrentData(transfer);
-        setMode('SENT');
-        setAppState('COMPLETE');
-      } catch (err) {
-        setError(t.failedUpload);
-        setAppState('IDLE');
-      }
-    };
-    reader.onerror = () => {
-      setError(t.failedRead);
+      const finalCode = await saveData(transfer);
+      transfer.code = finalCode;
+
+      addToHistory({
+        code: transfer.code,
+        name: transfer.name,
+        size: transfer.size,
+        type: 'sent',
+        expiryMinutes: expiryMinutes,
+      });
+
+      setCurrentData(transfer);
+      setMode('SENT');
+      setAppState('COMPLETE');
+    } catch (err) {
+      console.error('File send error:', err);
+      setError(t.failedUpload || 'Failed to complete file transfer. Please try again.');
       setAppState('IDLE');
-    };
+    }
   };
 
   const handleReceive = async (code: string) => {

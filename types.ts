@@ -1,3 +1,9 @@
+export interface TransferFileItem {
+  name: string;
+  size: number;
+  type: string;
+  content: string;
+}
 
 export interface TransferData {
   id: string;
@@ -6,9 +12,9 @@ export interface TransferData {
   size: number;
   type: string;
   content: string; // Base64 or Text
+  files?: TransferFileItem[]; // Multi-file support
   createdAt: number;
   expiresAt: number;
-  // maxDownloads removed - downloads are unlimited
 }
 
 export type AppState = 'IDLE' | 'SENDING' | 'RECEIVING' | 'COMPLETE';
