@@ -28,7 +28,10 @@ export const metadata = {
     title: "Are My Shared Files Actually Deleted?",
     description: "The truth about cloud deletion. Tip: Most 'deleted' files aren't actually gone.",
     url: "https://quicktransfer.site/blog/are-my-files-actually-deleted",
-  }
+  },
+  alternates: {
+    canonical: "https://quicktransfer.site/blog/are-my-files-actually-deleted",
+  },
 };
 
 export default function AreMyFilesDeletedPost() {

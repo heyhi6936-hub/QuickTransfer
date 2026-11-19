@@ -25,7 +25,10 @@ export const metadata = {
     title: "Anonymous File Sharing Free — No Account Needed",
     description: "Share files privately with a 6-digit code. No account, no tracking, auto-deleted in 10 minutes.",
     url: "https://quicktransfer.site/blog/anonymous-file-sharing",
-  }
+  },
+  alternates: {
+    canonical: "https://quicktransfer.site/blog/anonymous-file-sharing",
+  },
 };
 
 export default function AnonymousFileSharingPost() {

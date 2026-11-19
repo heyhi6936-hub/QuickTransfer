@@ -26,7 +26,10 @@ export const metadata = {
     title: "How to Share Files With Expiry Dates",
     description: "Learn how to use auto-expiring links to protect your data privacy in 2026.",
     url: "https://quicktransfer.site/blog/expiring-file-sharing",
-  }
+  },
+  alternates: {
+    canonical: "https://quicktransfer.site/blog/expiring-file-sharing",
+  },
 };
 
 export default function ExpiringFileSharingPost() {

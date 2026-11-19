@@ -27,7 +27,10 @@ export const metadata = {
     title: "7 File Sharing Mistakes That Put Your Data at Risk",
     description: "Tip #4 surprises most people. Are you making these dangerous file sharing mistakes?",
     url: "https://quicktransfer.site/blog/file-sharing-mistakes",
-  }
+  },
+  alternates: {
+    canonical: "https://quicktransfer.site/blog/file-sharing-mistakes",
+  },
 };
 
 export default function FileSharingMistakesPost() {

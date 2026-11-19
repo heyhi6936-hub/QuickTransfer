@@ -12,9 +12,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://quicktransfer.site"),
 
   // ── Core ──────────────────────────────────────────────────────────────────
-  title: "QuickTransfer - Send Files Free, No Sign-Up",
+  title: {
+    default: "QuickTransfer – Free Online File Sharing Without Signup",
+    template: "%s | QuickTransfer",
+  },
   description:
-    "Share files online instantly — no account, no hassle. QuickTransfer lets you send documents, photos \u0026 videos securely in seconds. Try it free now.",
+    "Send files online with QuickTransfer. No account required: upload files, share a transfer code, and let recipients download them. Free transfers up to 100MB.",
   keywords:
     "send files online, free file transfer, no sign up, share files online instantly, secure file transfer, send large files, no login, file sharing online, data transfer, free file upload, link transfer, files between devices",
   authors: [{ name: "QuickTransfer" }],
@@ -25,9 +28,8 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
 
-  // ── Canonical ─────────────────────────────────────────────────────────────
+  // ── Canonical & Feeds ──────────────────────────────────────────────────────
   alternates: {
-    canonical: "https://quicktransfer.site/",
     types: {
       "application/xml": "/sitemap.xml",
     },
@@ -36,9 +38,9 @@ export const metadata: Metadata = {
   // ── Open Graph ────────────────────────────────────────────────────────────
   openGraph: {
     type: "website",
-    title: "QuickTransfer - Send Files Free, No Sign-Up",
+    title: "QuickTransfer – Free Online File Sharing Without Signup",
     description:
-      "Send files instantly with a secure 6-digit code. No login, no registration. Works on any device.",
+      "Send files instantly with a secure 6-digit code. No login required, free transfers up to 100MB. Works on any device.",
     url: "https://quicktransfer.site/",
     siteName: "QuickTransfer",
     images: [
@@ -54,9 +56,9 @@ export const metadata: Metadata = {
   // ── Twitter Card ──────────────────────────────────────────────────────────
   twitter: {
     card: "summary_large_image",
-    title: "QuickTransfer - Send Files Free, No Sign-Up",
+    title: "QuickTransfer – Free Online File Sharing Without Signup",
     description:
-      "Send files instantly with a secure 6-digit code. No login required. Works on any device.",
+      "Send files instantly with a secure 6-digit code. No login required, free transfers up to 100MB. Works on any device.",
     images: ["/og-image.png"],
   },
 

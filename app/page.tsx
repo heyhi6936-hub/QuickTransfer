@@ -1,8 +1,17 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import HomeClient from '../components/HomeClient';
 import { Rocket, Shield, Clock, Smartphone, FileUp, Zap } from 'lucide-react';
 
 export const dynamic = "force-static";
+
+export const metadata: Metadata = {
+  title: "QuickTransfer – Free Online File Sharing Without Signup",
+  description: "Send files online with QuickTransfer. No account required: upload files, share a transfer code, and let recipients download them. Free transfers up to 100MB.",
+  alternates: {
+    canonical: "https://quicktransfer.site/",
+  },
+};
 
 export default function Page() {
   const faqJsonLd = {

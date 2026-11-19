@@ -25,7 +25,10 @@ export const metadata = {
     title: "Easiest Way to Share Files Online",
     description: "Just a 6-digit code. No account needed. Even your parents can use it.",
     url: "https://quicktransfer.site/blog/easiest-way-to-share-files",
-  }
+  },
+  alternates: {
+    canonical: "https://quicktransfer.site/blog/easiest-way-to-share-files",
+  },
 };
 
 export default function EasiestWayToShareFilesPost() {

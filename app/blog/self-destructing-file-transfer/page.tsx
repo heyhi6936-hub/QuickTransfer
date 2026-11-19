@@ -28,7 +28,10 @@ export const metadata = {
     title: "Self-Destructing File Transfer — Auto-Delete in 10 Min",
     description: "Send files that vanish after download. 6-digit code, 10-min expiry, zero account needed.",
     url: "https://quicktransfer.site/blog/self-destructing-file-transfer",
-  }
+  },
+  alternates: {
+    canonical: "https://quicktransfer.site/blog/self-destructing-file-transfer",
+  },
 };
 
 export default function SelfDestructingFileTransferPost() {

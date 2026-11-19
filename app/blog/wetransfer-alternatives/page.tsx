@@ -15,7 +15,10 @@ export const dynamic = 'force-static';
 
 export const metadata = {
   title: '5 Best Free WeTransfer Alternatives in 2026 (No Sign-Up Required)',
-  description: 'Looking for a WeTransfer alternative? Compare the top 5 free file sharing tools with no sign-up required. Send files instantly in 2026.',
+  description: 'Looking for a WeTransfer alternative? Compare top free file sharing tools with no sign-up required. Send files instantly up to 100MB in 2026.',
+  alternates: {
+    canonical: 'https://quicktransfer.site/blog/wetransfer-alternatives',
+  },
 };
 
 export default function BlogPost() {

@@ -27,7 +27,10 @@ export const metadata = {
     title: "Fastest Way to Share Files Online in 2026",
     description: "Instant, free, and no sign-up required. Share files in under 30 seconds.",
     url: "https://quicktransfer.site/blog/fastest-way-to-share-files",
-  }
+  },
+  alternates: {
+    canonical: "https://quicktransfer.site/blog/fastest-way-to-share-files",
+  },
 };
 
 export default function FastestWayToShareFilesPost() {

@@ -17,7 +17,10 @@ export const dynamic = 'force-static';
 
 export const metadata = {
   title: 'How to Send Large Files Without Email in 2026 (Free & No Account)',
-  description: 'Sharing huge files? Learn how to send large files free without email or registration. Compare QuickTransfer, Google Drive, and Dropbox for no-account sharing.',
+  description: 'Sharing large files up to 100MB? Learn how to send files free without email or registration. Compare QuickTransfer, Google Drive, and Dropbox.',
+  alternates: {
+    canonical: 'https://quicktransfer.site/blog/send-large-files',
+  },
 };
 
 export default function BlogPost() {

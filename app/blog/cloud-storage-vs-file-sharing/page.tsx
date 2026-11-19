@@ -26,7 +26,10 @@ export const metadata = {
     title: "Cloud Storage vs File Sharing: What's the Difference?",
     description: "Learn when to use Google Drive and when to use QuickTransfer for maximum security.",
     url: "https://quicktransfer.site/blog/cloud-storage-vs-file-sharing",
-  }
+  },
+  alternates: {
+    canonical: "https://quicktransfer.site/blog/cloud-storage-vs-file-sharing",
+  },
 };
 
 export default function CloudStorageVsFileSharingPost() {
