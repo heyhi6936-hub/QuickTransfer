@@ -1,0 +1,74 @@
+{
+  "name": "quicktransfer",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.2.2",
+    "autoprefixer": "^10.4.27",
+    "firebase": "^10.14.1",
+    "lucide-react": "^0.563.0",
+    "next": "^16.2.3",
+    "postcss": "^8.5.9",
+    "qrcode.react": "^4.2.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "electron": "^26.0.0",
+    "electron-builder": "^24.0.0",
+    "sharp": "^0.34.5",
+    "typescript": "~5.8.2"
+  },
+  "main": "electron/main.cjs",
+  "build": {
+    "appId": "com.quicktransfer.app",
+    "productName": "QuickTransfer",
+    "directories": {
+      "buildResources": "build",
+      "output": "dist_electron"
+    },
+    "files": [
+      "dist/**",
+      "electron/**",
+      "public/**"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "publisherName": "QuickTransfer"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "reactSnap": {
+    "source": "dist",
+    "include": [
+      "/",
+      "/terms",
+      "/privacy",
+      "/help",
+      "/contact",
+      "/download"
+    ],
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
+  }
+}
