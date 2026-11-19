@@ -60,3 +60,4 @@ flowchart TD
 2. **At-Rest Storage:** Data is stored temporarily in Firebase Realtime Database in Google Cloud data centers, protected by Firebase infrastructure encryption at rest.
 3. **End-to-End Encryption Clarification:** Browser-side E2E encryption with zero-knowledge keys is **not** currently implemented; data is stored as transmitted data URLs in RTDB. Marketing statements must explicitly state "Encrypted in transit with HTTPS" and "Ephemeral storage with automatic expiry", rather than claiming zero-knowledge or client-side AES-256 E2E encryption.
 4. **Retention:** Records are set to expire in 5 or 10 minutes. Expired records are deleted upon lookup, preventing retrieval after timeout.
+

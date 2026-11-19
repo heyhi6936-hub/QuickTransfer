@@ -21,13 +21,13 @@ const ResultView: React.FC<ResultViewProps> = ({ data, mode, onBack }) => {
   const [downloaded, setDownloaded] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState<number>(0);
   const [isExpired, setIsExpired] = useState(false);
-  
+
   if (!data) return null;
 
   // Live countdown timer
   useEffect(() => {
     if (mode !== 'SENT') return;
-    
+
     const updateStatus = async () => {
       // Update time remaining
       const remaining = Math.max(0, data.expiresAt - Date.now());
@@ -38,13 +38,13 @@ const ResultView: React.FC<ResultViewProps> = ({ data, mode, onBack }) => {
         return;
       }
     };
-    
+
     // Initial check
     updateStatus();
-    
+
     // Check every 3 seconds
     const interval = setInterval(updateStatus, 3000);
-    
+
     return () => clearInterval(interval);
   }, [mode, data.code, data.expiresAt]);
 
@@ -105,7 +105,7 @@ const ResultView: React.FC<ResultViewProps> = ({ data, mode, onBack }) => {
               </div>
               <h3 className="text-2xl font-black text-gray-800 dark:text-white mb-2">{t.codeExpired || 'Code Expired'}</h3>
               <p className="text-gray-500 dark:text-gray-400 mb-6">{t.codeExpiredDesc || 'This transfer code is no longer valid.'}</p>
-              <button 
+              <button
                 onClick={onBack}
                 className="w-full bg-gradient-to-r from-red-500 to-pink-500 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:from-red-600 hover:to-pink-600 transition-all shadow-lg shadow-red-500/25 dark:shadow-red-500/20"
               >
@@ -129,21 +129,21 @@ const ResultView: React.FC<ResultViewProps> = ({ data, mode, onBack }) => {
               </div>
 
               <div className="bg-gray-50 dark:bg-slate-700/50 p-6 rounded-2xl flex flex-col items-center gap-4 mb-8 border border-gray-100 dark:border-slate-600">
-                 <div className="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-sm">
-                    <QRCodeSVG value={`https://quicktransfer.site/?code=${data.code}`} size={150} />
-                 </div>
-                 {/* remaining badge removed since download-limit option was removed */}
+                <div className="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-sm">
+                  <QRCodeSVG value={`https://quicktransfer.site/?code=${data.code}`} size={150} />
+                </div>
+                {/* remaining badge removed since download-limit option was removed */}
               </div>
 
               <div className="flex flex-col gap-3">
-                <button 
+                <button
                   onClick={handleCopyCode}
                   className="w-full bg-gradient-to-r from-red-500 to-pink-500 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:from-red-600 hover:to-pink-600 transition-all shadow-lg shadow-red-500/25 dark:shadow-red-500/20"
                 >
                   <Share2 className="w-5 h-5" aria-label="share transfer code" />
                   {copied ? t.copied : t.copyCode}
                 </button>
-                <button 
+                <button
                   onClick={onBack}
                   className="w-full bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-200 font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-200 dark:hover:bg-slate-600 transition-all"
                 >
@@ -159,7 +159,7 @@ const ResultView: React.FC<ResultViewProps> = ({ data, mode, onBack }) => {
           <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-500/20 dark:to-indigo-500/20 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-blue-100 dark:border-blue-500/30">
             <FileText className="w-10 h-10 text-blue-500 dark:text-blue-400" aria-hidden="true" />
           </div>
-          
+
           <div className="mb-8">
             <h3 className="text-2xl font-black text-gray-800 dark:text-white mb-1">{data.name}</h3>
             <p className="text-gray-400 dark:text-gray-400 text-sm font-medium">{(data.size / 1024 / 1024).toFixed(2)} MB</p>
@@ -170,7 +170,7 @@ const ResultView: React.FC<ResultViewProps> = ({ data, mode, onBack }) => {
             <h4 className="text-xs font-bold text-gray-400 dark:text-gray-400 uppercase tracking-wider mb-4 px-1">
               {data.files && data.files.length > 1 ? `Files in this transfer (${data.files.length})` : 'File Details'}
             </h4>
-            
+
             {data.files && data.files.length > 1 ? (
               <div className="space-y-3 max-h-60 overflow-y-auto pr-1">
                 {data.files.map((file, idx) => (
@@ -217,14 +217,14 @@ const ResultView: React.FC<ResultViewProps> = ({ data, mode, onBack }) => {
           </div>
 
           <div className="flex flex-col gap-3">
-            <button 
+            <button
               onClick={downloadAll}
               className="w-full bg-gradient-to-r from-red-500 to-pink-500 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:from-red-600 hover:to-pink-600 transition-all shadow-lg shadow-red-500/25 dark:shadow-red-500/20 transform active:scale-[0.98]"
             >
               <Download className="w-5 h-5" aria-label="download file instantly" />
               {data.files && data.files.length > 1 ? 'Download All Files' : t.downloadFile}
             </button>
-            <button 
+            <button
               onClick={onBack}
               className="w-full bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-200 font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-200 dark:hover:bg-slate-600 transition-all"
             >
@@ -232,11 +232,11 @@ const ResultView: React.FC<ResultViewProps> = ({ data, mode, onBack }) => {
               {t.transferAnother}
             </button>
           </div>
-          
+
           <p className="mt-4 text-xs text-gray-400 dark:text-gray-400">
             {t.virusWarning}
           </p>
-          
+
           {/* Demo Ad - After Download */}
           <div className="mt-6">
             <DemoAd size="320x50" label="After Download" />

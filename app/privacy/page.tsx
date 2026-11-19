@@ -18,7 +18,7 @@ export default function PrivacyPage() {
       <div className="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100 dark:border-slate-700/50">
         <h1 className="text-4xl font-black text-gray-800 dark:text-white mb-8 text-center">Privacy Policy</h1>
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-8 text-center">Effective date: November 2026</p>
-        
+
         <div className="prose prose-lg dark:prose-invert max-w-none space-y-8 text-gray-600 dark:text-gray-300">
           <section>
             <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">1. No Account & Zero Credential Collection</h2>

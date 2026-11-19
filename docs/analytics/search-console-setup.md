@@ -50,3 +50,4 @@ Track 75th percentile mobile and desktop field metrics in Search Console Core We
 | **Indexed Pages** | 18 | 26 | 26 | 26 | 26+ |
 | **Top Performing Queries** | `quicktransfer`, `quick transfer` | — | — | — | `send files without account`, `phone to pc transfer` |
 | **Coverage Errors** | 0 | 0 | 0 | 0 | 0 |
+

@@ -33,7 +33,7 @@ export default function DownloadPage() {
             <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">Mobile App</h3>
             <p className="text-gray-500 dark:text-gray-400 text-center mb-8">Share photos and videos directly from your camera roll on Android and iOS.</p>
             <button className="w-full py-4 border-2 border-red-500 text-red-500 font-bold rounded-xl hover:bg-red-50 transition-colors flex items-center justify-center gap-2">
-               Download for Android
+              Download for Android
             </button>
           </div>
         </div>

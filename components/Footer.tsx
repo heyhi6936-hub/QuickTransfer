@@ -33,35 +33,34 @@ const Footer: React.FC = () => {
             </div>
             <span className="font-bold text-gray-700 dark:text-white">QuickTransfer</span>
           </Link>
-          
+
           {/* Links Grid */}
           <div className="grid grid-cols-2 gap-x-8 gap-y-3 text-center text-sm">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
-                <Link 
+                <Link
                   key={link.href}
-                  href={link.href} 
-                  className={`transition-colors ${
-                    isActive
+                  href={link.href}
+                  className={`transition-colors ${isActive
                       ? 'text-red-500 dark:text-red-400 font-medium'
                       : 'text-gray-500 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400'
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </Link>
               );
             })}
           </div>
-          
+
           {/* Divider */}
           <div className="w-16 h-0.5 bg-gradient-to-r from-red-500 to-pink-500 rounded-full" />
-          
+
           {/* Copyright */}
           <p className="text-xs text-gray-400 dark:text-gray-500">© 2026 QuickTransfer Inc.</p>
           <p className="text-xs text-gray-300 dark:text-gray-600">{t.allRightsReserved}</p>
         </div>
-        
+
         {/* Desktop Footer */}
         <div className="hidden md:flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all">
@@ -72,14 +71,13 @@ const Footer: React.FC = () => {
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
-                <Link 
+                <Link
                   key={link.href}
-                  href={link.href} 
-                  className={`transition-colors ${
-                    isActive
+                  href={link.href}
+                  className={`transition-colors ${isActive
                       ? 'text-red-500 dark:text-red-400'
                       : 'text-gray-400 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400'
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </Link>

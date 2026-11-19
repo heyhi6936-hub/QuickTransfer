@@ -33,3 +33,4 @@ Avoid low-quality directory submission, PBNs, or comment spam. Instead, focus on
    - Instant QR code rendering on the sender's screen makes device-to-device transfers effortless in physical proximity (e.g. meeting rooms, classrooms, co-working spaces).
 3. **Transparent Privacy Comparison:**
    - Maintain objective, dated comparison tables against traditional email attachment limits (25MB) and account-gated cloud drives, highlighting speed and temporary privacy.
+

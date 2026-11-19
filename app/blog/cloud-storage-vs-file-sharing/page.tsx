@@ -1,14 +1,14 @@
 import React from 'react';
-import { 
-  Cloud, 
-  Share2, 
-  ArrowRight, 
-  CheckCircle2, 
-  XCircle, 
-  Clock, 
-  ShieldCheck, 
-  Users, 
-  Zap, 
+import {
+  Cloud,
+  Share2,
+  ArrowRight,
+  CheckCircle2,
+  XCircle,
+  Clock,
+  ShieldCheck,
+  Users,
+  Zap,
   HardDrive,
   Info,
   HelpCircle,
@@ -103,7 +103,7 @@ export default function CloudStorageVsFileSharingPost() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      
+
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <header className="mb-16">
@@ -118,9 +118,9 @@ export default function CloudStorageVsFileSharingPost() {
             Cloud Storage vs File Sharing: What's the Difference and Which Should You Use?
           </h1>
           <div className="flex items-center gap-4 border-b border-gray-100 dark:border-slate-800 pb-12">
-            <img 
-              src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=100" 
-              alt="Sarah Jenkins" 
+            <img
+              src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=100"
+              alt="Sarah Jenkins"
               className="w-12 h-12 rounded-full border-2 border-red-500"
             />
             <div>
@@ -375,8 +375,8 @@ export default function CloudStorageVsFileSharingPost() {
             <p className="text-gray-600 dark:text-gray-400 mb-10 text-lg max-w-xl mx-auto">
               Choose the right tool for the job. Send your next file in 30 seconds with zero registration.
             </p>
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="inline-flex items-center gap-4 bg-gray-900 text-white dark:bg-red-500 dark:text-white px-16 py-6 rounded-2xl font-black text-2xl hover:scale-105 transition-all shadow-xl shadow-red-500/20 group"
             >
               Start Sharing Now
