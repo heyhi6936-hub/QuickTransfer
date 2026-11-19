@@ -163,7 +163,7 @@ export default function Page() {
                     </div>
                     <div className="pt-6">
                       <p className="font-bold text-gray-800 dark:text-white mb-2">What happens to my files?</p>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Files are automatically purged from our servers after the chosen expiration time or immediately after the maximum allowed downloads.</p>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Files are automatically purged from our servers after the chosen expiration time (5 or 10 minutes) runs out.</p>
                     </div>
                     <div className="pt-6">
                       <p className="font-bold text-gray-800 dark:text-white mb-2">Do I need an account?</p>
