@@ -113,8 +113,8 @@ export default function AnonymousFileSharingPost() {
             <div className="bg-gray-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-gray-100 dark:border-slate-700/50 flex gap-4">
               <Lock className="w-6 h-6 text-red-500 shrink-0" />
               <div>
-                <strong className="block text-gray-900 dark:text-white mb-1">End-to-End Encryption</strong>
-                The server should never see the contents of your file. Check our <Link href="/security" className="text-red-500 font-bold hover:underline">encryption details</Link> for more.
+                <strong className="block text-gray-900 dark:text-white mb-1">Encrypted in Transit</strong>
+                Data travels across encrypted HTTPS connections. Check our <Link href="/security" className="text-red-500 font-bold hover:underline">security details</Link> for more.
               </div>
             </div>
           </div>
@@ -235,11 +235,11 @@ export default function AnonymousFileSharingPost() {
             </div>
             <div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Can anyone intercept my file transfer?</h3>
-              <p className="text-sm">No. We use end-to-end encryption. Even if someone were to intercept the data stream, they would find only encrypted noise. Only the person with the 6-digit code can unlock the file.</p>
+              <p className="text-sm">All transfers travel over encrypted HTTPS (TLS 1.2+) connections to prevent network eavesdropping. The file is only accessible by someone who inputs the valid 6-digit code during the active window.</p>
             </div>
             <div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">How long are files stored?</h3>
-              <p className="text-sm">Files are stored for exactly 10 minutes. If they aren't downloaded by then, they are automatically and permanently purged from our memory-only staging servers.</p>
+              <p className="text-sm">Files are stored temporarily for your chosen duration (5 or 10 minutes). Once expired, transfers are automatically invalidated and deleted.</p>
             </div>
             <div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Is there a file size limit for anonymous transfers?</h3>

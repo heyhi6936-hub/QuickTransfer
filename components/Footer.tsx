@@ -11,6 +11,9 @@ const Footer: React.FC = () => {
   const pathname = usePathname()
   const navLinks = [
     { href: '/', label: t.transfer },
+    { href: '/send-files-without-account', label: 'No-Account Sharing' },
+    { href: '/send-files-from-phone-to-pc', label: 'Phone to PC' },
+    { href: '/temporary-file-sharing', label: 'Temporary Sharing' },
     { href: '/help', label: t.howItWorks },
     { href: '/blog', label: 'Blog' },
     { href: '/security', label: 'Security' },

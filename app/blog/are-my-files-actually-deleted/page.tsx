@@ -73,15 +73,15 @@ export default function AreMyFilesDeletedPost() {
         "name": "How does QuickTransfer delete files?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "QuickTransfer uses a block-level wipe immediately after a file is downloaded or once its 10-minute TTL (Time-To-Live) expires. This ensures the data is overwritten at the storage level, making recovery impossible."
+          "text": "QuickTransfer automatically deletes file records once the active expiration timer (5 or 10 minutes) runs out, preventing files from remaining indefinitely on cloud servers."
         }
       },
       {
         "@type": "Question",
-        "name": "Is it safe to share medical files online?",
+        "name": "Is it safe to share sensitive files online?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "It is safe only if you use a tool with end-to-end encryption and a zero-data retention policy. QuickTransfer is ideal for this because it deletes the file the second it is received, leaving no trail."
+          "text": "It is safe if you use tools with transit encryption (HTTPS), minimal data retention, and no account requirements. QuickTransfer enforces automatic expiration and requires no sign-up."
         }
       },
       {

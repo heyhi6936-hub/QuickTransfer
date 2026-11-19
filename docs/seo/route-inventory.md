@@ -16,6 +16,10 @@
 | `/terms` | Terms of Service | `https://quicktransfer.site/terms` | `index, follow` | Yes (Priority 0.5) |
 | `/contact` | Contact & Support Channels | `https://quicktransfer.site/contact` | `index, follow` | Yes (Priority 0.6) |
 | `/download` | Desktop & Mobile Information | `https://quicktransfer.site/download` | `index, follow` | Yes (Priority 0.7) |
+| `/send-files-without-account` | Landing: Send Files Without an Account | `https://quicktransfer.site/send-files-without-account` | `index, follow` | Yes (Priority 0.8) |
+| `/send-files-from-phone-to-pc` | Landing: Phone to PC Wireless Transfer | `https://quicktransfer.site/send-files-from-phone-to-pc` | `index, follow` | Yes (Priority 0.8) |
+| `/temporary-file-sharing` | Landing: Temporary & Ephemeral Sharing | `https://quicktransfer.site/temporary-file-sharing` | `index, follow` | Yes (Priority 0.8) |
+| `/file-transfer-not-working` | Troubleshooting: Common Transfer Issues | `https://quicktransfer.site/file-transfer-not-working` | `index, follow` | Yes (Priority 0.7) |
 | `/blog` | Blog Index & Article Directory | `https://quicktransfer.site/blog` | `index, follow` | Yes (Priority 0.8) |
 | `/blog/fastest-way-to-share-files` | Guide: Fast File Sharing No Sign-Up | `https://quicktransfer.site/blog/fastest-way-to-share-files` | `index, follow` | Yes (Priority 0.7) |
 | `/blog/expiring-file-sharing` | Guide: Expiring File Transfers | `https://quicktransfer.site/blog/expiring-file-sharing` | `index, follow` | Yes (Priority 0.7) |

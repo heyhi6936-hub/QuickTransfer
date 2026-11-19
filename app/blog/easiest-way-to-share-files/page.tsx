@@ -201,7 +201,7 @@ export default function EasiestWayToShareFilesPost() {
                 <ShieldCheck className="w-5 h-5 text-red-500" />
                 Is it safe?
               </h3>
-              <p className="text-sm">Yes. We use end-to-end encryption, and files are automatically deleted after they are downloaded. Read more in <Link href="/security" className="text-red-500 font-bold hover:underline text-sm">is it safe?</Link></p>
+              <p className="text-sm">Yes. All transfers travel over encrypted HTTPS connections and files expire automatically within 5 to 10 minutes. Read more in <Link href="/security" className="text-red-500 font-bold hover:underline text-sm">our security guide</Link>.</p>
             </div>
             <div>
               <h3 className="text-xl font-bold mb-2 flex items-center gap-2">

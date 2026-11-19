@@ -85,7 +85,7 @@ export default function BlogPost() {
               <ShieldCheck className="w-6 h-6 text-red-500 shrink-0" />
               <div>
                 <strong className="block text-gray-900 dark:text-white mb-1">Privacy First</strong>
-                Look for end-to-end encryption and a "no-log" policy that protects your sensitive metadata.
+                Look for transit encryption (HTTPS) and an ephemeral data retention policy that avoids permanent file archiving.
               </div>
             </li>
             <li className="bg-gray-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-gray-100 dark:border-slate-700/50 flex gap-4">
@@ -111,7 +111,7 @@ export default function BlogPost() {
             <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-6">Key Features</h3>
             <ul className="space-y-4 list-none pl-0">
               <li className="flex items-center gap-3"><CheckCircle2 className="text-green-500 w-5 h-5 shrink-0" /> 100MB super-fast transfer limit</li>
-              <li className="flex items-center gap-3"><CheckCircle2 className="text-green-500 w-5 h-5 shrink-0" /> Industry-standard AES-256 encryption</li>
+              <li className="flex items-center gap-3"><CheckCircle2 className="text-green-500 w-5 h-5 shrink-0" /> Encrypted in transit via modern HTTPS (TLS 1.2+)</li>
               <li className="flex items-center gap-3"><CheckCircle2 className="text-green-500 w-5 h-5 shrink-0" /> Truly zero registration required</li>
               <li className="flex items-center gap-3"><CheckCircle2 className="text-green-500 w-5 h-5 shrink-0" /> Automatic file purging after 10 minutes</li>
             </ul>
